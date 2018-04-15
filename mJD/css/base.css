@@ -1,0 +1,56 @@
+/*清除伪类举例*/
+
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    /* 确定边界不想外扩展*/
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /* 去掉移动端旋转后的tab高亮显示*/
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Microsoft YaHei Mono','sans-serif';
+    font-size: 12px;
+    color: #000;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+textarea,input {
+    border: none;
+    outline: none;
+    /* 去掉iOS 系统非扁平化效果*/
+    -webkit-appearance: none;
+}
+
+/*去掉ol, ul相关的浮动(有浮动的情况下获取不到高度) */
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+[class ^='icon_']{
+    background: url("../images/sprites.png") no-repeat;
+    -webkit-background-size: 200px 200px;
+    background-size: 200px 200px;
+}
+
+.none_border_bottom {
+    border-bottom: none !important;
+}
